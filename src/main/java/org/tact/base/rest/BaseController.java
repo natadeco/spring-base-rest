@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/base")
 public class BaseController {
 	
-    @RequestMapping(value = "", method = RequestMethod.GET)
+	
+	//localhost:8080/base/movie
+    @RequestMapping(value = "/movie", method = RequestMethod.GET)
     public <T> T listUsers() {
         Map<String, Object> map = new LinkedHashMap<String, Object>();
         map.put("Actor", "Ajith");
@@ -19,6 +21,16 @@ public class BaseController {
         map.put("Movie", "Viswasam");
         map.put("Rating", "6/10");
         
+        return (T) map;
+    }
+    
+    //localhost:8080/base/scientist
+    @RequestMapping(value = "/scientist", method = RequestMethod.GET)
+    public <T> T listScientist() {
+        Map<String, Object> map = new LinkedHashMap<String, Object>();
+        map.put("name", "Dr. APJ Abdul Kalam");
+        map.put("designation", "Scientist");
+      
         return (T) map;
     }
 }
